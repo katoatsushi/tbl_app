@@ -1,0 +1,13 @@
+<h1 style="text-align: center;">個別契約基本情報</h1>
+<%= form_for @c_other, url:   c_main_info_c_others_path(params[:c_main_info_id]) do |f| %>
+	責任の有無：
+	<%= f.radio_button :responsibility, :yes %>
+  	<%= f.label :responsibility, "有", {value: :true, style: "display: inline-block;"} %>
+  	<%= f.radio_button :responsibility, :no %>
+  	<%= f.label :responsibility, "無", {value: :false, style: "display: inline-block;"} %> <br> 				
+
+	責任の程度：<%= f.text_field :responsibility_proportion %><br> 
+	派遣労働者の限定：<%= f.text_field :limit_of_temporary_worker %><br>  
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>

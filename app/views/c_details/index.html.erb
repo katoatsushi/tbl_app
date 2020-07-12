@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>C Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @c_details.each do |c_detail| %>
+      <tr>
+        <td><%= link_to 'Show', c_detail %></td>
+        <td><%= link_to 'Edit', edit_c_detail_path(c_detail) %></td>
+        <td><%= link_to 'Destroy', c_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New C Detail', new_c_detail_path %>

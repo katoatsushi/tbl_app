@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>C Welfares</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @c_welfares.each do |c_welfare| %>
+      <tr>
+        <td><%= link_to 'Show', c_welfare %></td>
+        <td><%= link_to 'Edit', edit_c_welfare_path(c_welfare) %></td>
+        <td><%= link_to 'Destroy', c_welfare, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New C Welfare', new_c_welfare_path %>

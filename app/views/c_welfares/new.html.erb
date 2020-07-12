@@ -1,0 +1,12 @@
+<h1 style="text-align: center;">個別契約基本情報</h1>
+<%= form_for  @c_welfare , url:  c_main_info_c_welfares_path(params[:c_main_info_id]) do |f| %>
+
+	制服：<%= f.text_field :uniform %><br>
+ 	靴：<%= f.text_field :shoes %><br> 	  	  	  	  	  	  	  	  	 	
+ 	社員食堂：<%= f.text_field :dining_room %><br>
+	更衣室：<%= f.text_field :changing_room %><br>		
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+
+       

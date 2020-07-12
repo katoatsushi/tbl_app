@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>C Others</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @c_others.each do |c_other| %>
+      <tr>
+        <td><%= link_to 'Show', c_other %></td>
+        <td><%= link_to 'Edit', edit_c_other_path(c_other) %></td>
+        <td><%= link_to 'Destroy', c_other, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New C Other', new_c_other_path %>

@@ -1,0 +1,21 @@
+<h1 style="text-align: center;">個別契約基本情報</h1>
+<%= form_for  @c_origin , url:  c_main_info_c_origins_path(params[:c_main_info_id]) do |f| %>
+
+	発行元：<%= f.text_field :origin %><br>
+	派遣会社名：<%= f.text_field :origin_company %><br>
+	〒：<%= f.text_field :origin_postal_code %><br>
+	発行元住所：<%= f.text_field :origin_place %><br>
+	派遣会社代表者：<%= f.text_field :origin_president %><br>
+	労働者派遣許可番号：<%= f.text_field :worker_dispatch_permit_number %><br>
+	<hr>
+	製造業務専門派遣元責任者部署：<%= f.text_field :manu_ope_to_department %><br>
+	製造業務専門派遣元責任者役職：<%= f.text_field :manu_ope_to_position %><br>
+	製造業務専門派遣元責任者氏名：<%= f.text_field :manu_ope_to_name %><br>
+	製造業務専門派遣元責任者TEL：<%= f.text_field :manu_ope_to_tel %><br>
+	派遣元苦情処理申出先部署：<%= f.text_field :complaint_department_from %><br>
+	派遣元苦情処理申出先役職：<%= f.text_field :complaint_position_from %><br>
+	派遣元苦情処理申出先氏名：<%= f.text_field :complaint_name_from %><br>
+	派遣元苦情処理申出先TEL：<%= f.text_field :complaint_tel_from %><br>
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>

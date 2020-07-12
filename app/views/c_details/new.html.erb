@@ -1,0 +1,38 @@
+<h1 style="text-align: center;">個別契約基本情報</h1>
+<%= form_for @c_detail, url:  c_main_info_c_details_path(params[:c_main_info_id]) do |f| %>
+
+	待遇決定方式：<%= f.number_field :treatment_decision_method ,min: 0 ,max:1000, value: 20 %>人<br>
+	派遣先企業名：<%= f.text_field :name, placeholder: "ああああ" %><br>
+	派遣先住所：<%= f.text_field :place, placeholder: "ああああ" %><br>
+	派遣先連絡先：<%= f.text_field :tel, placeholder: "ああああ" %><br>
+	営業所名称/工場名：<%= f.text_field :factory_name, placeholder: "ああああ" %><br>
+	営業所所在地：<%= f.text_field :factory_place, placeholder: "ああああ" %><br>		
+	営業所連絡先：<%= f.text_field :factory_tel, placeholder: "ああああ" %><br>
+	就業部署名：<%= f.text_field :factory_department, placeholder: "ああああ" %><br>
+	就業場所TEL：<%= f.text_field :factory_department_tel, placeholder: "ああああ" %><br>
+
+
+	組織単位：<%= f.number_field :party_num ,min: 0 ,max:1000, value: 20 %><br>
+	組織長役職：<%= f.number_field :party_position ,min: 0 ,max:1000, value: 20 %><br>
+
+	指揮命令者部署：<%= f.text_field :command_and_order_department, placeholder: "ああああ" %><br>	
+	指揮命令者役職：<%= f.text_field :command_and_order_position, placeholder: "ああああ" %><br>
+	指揮命令者氏名：<%= f.text_field :command_and_order_name, placeholder: "ああああ" %><br>
+	指揮命令者TEL：<%= f.text_field :command_and_order_tel, placeholder: "ああああ" %><br>
+	製造業務専門派遣先責任者部署：<%= f.text_field :manu_ope_from_department, placeholder: "ああああ" %><br>	
+	製造業務専門派遣先責任者役職：<%= f.text_field :manu_ope_from_position, placeholder: "ああああ" %><br>
+	製造業務専門派遣先責任者氏名：<%= f.text_field :manu_ope_from_name, placeholder: "ああああ" %><br>
+	製造業務専門派遣先責任者TEL：<%= f.text_field :manu_ope_from_tel, placeholder: "ああああ" %><br>
+	派遣先苦情処理申込先部署：<%= f.text_field :complaint_department_to, placeholder: "ああああ" %><br>	
+	派遣先苦情処理申込先役職：<%= f.text_field :complaint_position_to, placeholder: "ああああ" %><br>
+	派遣先苦情処理申込先氏名：<%= f.text_field :complaint_name_to, placeholder: "ああああ" %><br>
+	派遣先苦情処理申込先TEL：<%= f.text_field :complaint_tel_to, placeholder: "ああああ" %><br>
+	契約先郵便番号：<%= f.text_field :customer_postal_code, placeholder: "ああああ" %><br>	
+	契約先住所：<%= f.text_field :customer_place , placeholder: "ああああ" %><br>
+	契約確認者役職：<%= f.text_field :customer_position, placeholder: "ああああ" %><br>
+	契約確認者氏名：<%= f.text_field :customer_name, placeholder: "ああああ" %><br>
+
+	業務内容：<%= f.text_area :work_detail  , placeholder: "ああああ" %><br>
+				
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>

@@ -1,0 +1,2 @@
+module CWelfaresHelper
+end

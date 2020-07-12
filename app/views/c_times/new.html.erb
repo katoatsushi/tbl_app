@@ -1,0 +1,74 @@
+<h1 style="text-align: center;">個別契約基本情報</h1>
+<%= form_for  @c_time , url:  c_main_info_c_times_path(params[:c_main_info_id]) do |f| %>
+
+	就業日：<%= f.text_field :work_start_day %><br>
+	週単位の時間外の有無：
+	<%= f.radio_button :out_of_work, :yes %>
+  	<%= f.label :out_of_work, "有", {value: :true, style: "display: inline-block;"} %>
+  	<%= f.radio_button :out_of_work, :no %>
+  	<%= f.label :out_of_work, "無", {value: :false, style: "display: inline-block;"} %> <br>
+
+  	週の起算日：<%= f.text_field :work_start_day %><br>
+  	所定労働時間：<%= f.number_field :work_total_time %><br>
+  	計算単位(分)：<%= f.number_field :per_min %><br>  
+
+	変形労働時間制度の有無：
+	<%= f.radio_button :work_type_bool, :yes %>
+  	<%= f.label :work_type_bool, "有", {value: :true, style: "display: inline-block;"} %>
+  	<%= f.radio_button :work_type_bool, :no %>
+  	<%= f.label :work_type_bool, "無", {value: :false, style: "display: inline-block;"} %> <br> 	
+
+  	交代勤務：<%= f.text_field :work_change %><br>
+<div class="row">  	
+  	<div class="col-md-6">
+  	<hr>
+	シフトA名称<br>
+  	A勤務時間帯：<%= f.text_field :work_range_a %><br>
+  	A所定労働時間：<%= f.text_field :regular_work_range_a %><br>  
+  	A休憩時間：<%= f.text_field :break_time_a %><br>
+  	A総休憩時間：<%= f.text_field :total_break_time_a %><br>
+  	</div>
+  	<div class="col-md-6">
+	<hr>	  	  	
+	シフトB名称<br>  	  	  	  	
+  	B勤務時間帯：<%= f.text_field :work_range_b %><br>
+  	B所定労働時間：<%= f.text_field :regular_work_range_b %><br>  
+  	B休憩時間：<%= f.text_field :break_time_b %><br>
+  	B総休憩時間：<%= f.text_field :total_break_time_b %><br>
+  	</div>
+</div> 
+<div class="row">  	
+  	<div class="col-md-6"> 	
+ 	<hr>
+ 	シフトC名称<br>  	  	  	  	
+  	C勤務時間帯：<%= f.text_field :work_range_c %><br>
+  	C所定労働時間：<%= f.text_field :regular_work_range_c %><br>  
+  	C休憩時間：<%= f.text_field :break_time_c %><br>
+  	C総休憩時間：<%= f.text_field :total_break_time_c %><br>
+  	</div>
+  	<div class="col-md-6">  	
+  	<hr> 
+ 	シフトD名称<br>    	  	  	  	
+  	D勤務時間帯：<%= f.text_field :work_range_d %><br>
+  	D所定労働時間：<%= f.text_field :regular_work_range_d %><br>  
+  	D休憩時間：<%= f.text_field :break_time_d %><br>
+ 	D総休憩時間：<%= f.text_field :total_break_time_d %><br>
+  	</div>
+</div>  	
+	<hr>
+ 	シフトE名称<br>   
+  	E勤務時間帯：<%= f.text_field :work_range_e %><br>
+  	E所定労働時間：<%= f.text_field :regular_work_range_e %><br>  
+  	E休憩時間：<%= f.text_field :break_time_e %><br>
+  	E総休憩時間：<%= f.text_field :total_break_time_e %><br>  	
+	<hr>
+  	時間外単価：<%= f.text_field :overtime_unit_price %><br>
+  	法定休日単価：<%= f.text_field :legal_holiday_unit_price %><br>  
+  	深夜割増単価：<%= f.text_field :midnight_premium_unit_price %><br>
+  	締日：<%= f.text_field :deadine %><br>
+  	支払日：<%= f.text_field :date_of_payment %><br>
+  	端数処理：<%= f.text_field :rounding %><br>  
+
+  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>

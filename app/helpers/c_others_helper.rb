@@ -1,0 +1,2 @@
+module COthersHelper
+end
