@@ -1,0 +1,29 @@
+<h1 style="text-align: center;">会社記入欄</h1>
+<%= form_for @work_info, url: employee_info_work_infos_path(params[:employee_info_id]) do |f| %>
+
+	入社区分:
+	<%= f.radio_button :work_style, :yes %>
+  	<%= f.label :work_style, "新卒入社", {value: :a, style: "display: inline-block;"} %>
+  	<%= f.radio_button :work_style, :no %>
+  	<%= f.label :work_style, "中途入社", {value: :b, style: "display: inline-block;"} %> 
+  	<%= f.radio_button :work_style, :no %>
+  	<%= f.label :work_style, "派遣社員", {value: :c, style: "display: inline-block;"} %> <br>
+
+	入社日:  <%= f.date_select :start_day, {}, class: 'form-control' %><br>
+	変更日:	<%= f.date_select :transfer_day, {}, class: 'form-control' %>
+	配属先:	<%= f.number_field :work_department %>
+
+	業務の種類:	<%= f.number_field :work_type %>
+
+	税収区分:
+	<%= f.radio_button :tax, :yes %>
+  	<%= f.label :tax, "税収A", {value: :a, style: "display: inline-block;"} %>
+  	<%= f.radio_button :tax, :no %>
+  	<%= f.label :tax, "税収B", {value: :b, style: "display: inline-block;"} %> 
+  	<%= f.radio_button :tax, :no %>
+  	<%= f.label :tax, "税収C", {value: :c, style: "display: inline-block;"} %> <br>	
+
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

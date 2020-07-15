@@ -1,0 +1,20 @@
+<h1 style="text-align: center;">緊急連絡先</h1>
+<%= form_for @family, url: employee_info_familys_path(params[:employee_info_id]) do |f| %>
+
+	扶養人数:	<%= f.text_field :family_number %>
+	
+	配偶者(有・無):	
+	<%= f.radio_button :spouse, :on %>
+	<%= f.label :spouse, "有り", {value: :on, style: "display: inline-block;"} %>
+	<%= f.radio_button :spouse, :off %>
+	<%= f.label :spouse, "無し", {value: :off, style: "display: inline-block;"} %><br>	
+
+	配偶者の扶養義務(有・無)	:
+	<%= f.radio_button :obligation, :on %>
+	<%= f.label :obligation, "有り", {value: :on, style: "display: inline-block;"} %>
+	<%= f.radio_button :obligation, :off %>
+	<%= f.label :obligation, "無し", {value: :off, style: "display: inline-block;"} %><br>
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

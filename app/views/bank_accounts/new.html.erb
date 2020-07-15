@@ -1,0 +1,18 @@
+<h1 style="text-align: center;">振込口座情報</h1>
+<%= form_for  @bank_account , url:  employee_info_bank_accounts_path(params[:employee_info_id]) do |f| %>
+
+	銀行名:	<%= f.text_field :bank_name %><br>
+	銀行:	<%= f.text_field :bank_name_other %><br>
+	支店名:	<%= f.text_field :branch_name %><br>
+	営業所:	<%= f.text_field :sales_office %><br>
+	ゆうちょ銀行（店名）:	<%= f.text_field :yucho_bank %><br>
+	普通/当座:
+	<%= f.radio_button :bank_type, :yes %>
+  	<%= f.label :bank_type, "普通", {value: :ordinary, style: "display: inline-block;"} %>
+  	<%= f.radio_button :bank_type, :no %>
+  	<%= f.label :bank_type, "当座", {value: :current, style: "display: inline-block;"} %> <br> 
+	口座番号:	<%= f.text_field :account_number %><br>
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

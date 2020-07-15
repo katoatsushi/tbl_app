@@ -1,0 +1,15 @@
+<h1 style="text-align: center;">基本情報</h1>
+<%= form_for @labor_management_agreement, url: employee_info_labor_management_agreements_path(params[:employee_info_id]) do |f| %>	
+
+	協定対象派遣労働者であるか否か:	
+	<%= f.radio_button :agreement_check, :male %>
+	<%= f.label :agreement_check, "はい", {value: :male, style: "display: inline-block;"} %>
+	<%= f.radio_button :agreement_check, :female %>
+	<%= f.label :agreement_check, "いいえ", {value: :female, style: "display: inline-block;"} %><br>
+
+	労使協定有効期限開始:<%= f.date_select :labor_start, {}, class: 'form-control' %><br>
+
+	労使協定有効期限終了:<%= f.date_select :labor_fin, {}, class: 'form-control' %><br>
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

@@ -1,0 +1,20 @@
+<h1 style="text-align: center;">最終学歴</h1>
+<%= form_for @labor_standards_act, url: employee_info_labor_standards_acts_path(params[:employee_info_id]) do |f| %>
+
+		<%= f.number_field :age ,min: 0 ,max:200, value: 20 %><br>
+
+		一日の時間外労働最大:<%= f.number_field :max_work_day ,min: 0 ,max:200, value: 20 %><br>	
+		一月の時間外労働最大:<%= f.number_field :max_work_month ,min: 0 ,max:200, value: 20 %><br>
+
+		一年の時間外労働最大:<%= f.number_field :max_work_year ,min: 0 ,max:200, value: 20 %><br>
+		休日出勤の回数:<%= f.number_field :holiday_work_time ,min: 0 ,max:200, value: 20 %><br>
+		特別条項:<%= f.text_area :detail %><br>
+		一日の時間外労働最大(特):<%= f.number_field :max_work_day_special ,min: 0 ,max:200, value: 20 %>	<br>
+		一月の時間外労働最大(特):<%= f.number_field :max_work_month_special ,min: 0 ,max:200, value: 20 %><br>	
+		一年の時間外労働最大(特):<%= f.number_field :max_work_year_special ,min: 0 ,max:200, value: 20 %><br>
+		延長回数:<%= f.number_field :extension_time ,min: 0 ,max:200, value: 20 %><br>
+	
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

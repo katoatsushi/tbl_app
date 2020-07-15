@@ -1,0 +1,2 @@
+module ResidenceCardsHelper
+end

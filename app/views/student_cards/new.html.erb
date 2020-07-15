@@ -1,0 +1,20 @@
+<h1 style="text-align: center;">最終学歴</h1>
+<%= form_for  @student_card, url: employee_info_student_cards_path(params[:employee_info_id]) do |f| %>
+
+
+	在学中の学校:	<%= f.text_field :school_name %><br>
+	学籍№:	<%= f.text_field :student_id %><br>
+
+	学生証写し:
+	<%= f.radio_button :student_card_copy, :yes %>
+  	<%= f.label :student_card_copy, "有", {value: :true, style: "display: inline-block;"} %>
+  	<%= f.radio_button :student_card_copy, :no %>
+  	<%= f.label :student_card_copy, "無し", {value: :false, style: "display: inline-block;"} %> <br>
+
+	学生証有効期限: <%= f.date_select :student_limit, {}, class: 'form-control' %><br>
+	学生証有効期限残り: <%= f.text_field :student_last %><br>	
+ 	
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

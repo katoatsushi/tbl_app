@@ -1,0 +1,10 @@
+<h1 style="text-align: center;">最終就労先</h1>
+<%= form_for @work_experience, url: employee_info_work_experiences_path(params[:employee_info_id]) do |f| %>
+
+	職歴年:	<%= f.number_field :work_year %>
+	職歴月:	<%= f.number_field :work_month %>
+	就労先名（派遣の場合は派遣元社名を入力の事） <%= f.text_field :swork_name %>	
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

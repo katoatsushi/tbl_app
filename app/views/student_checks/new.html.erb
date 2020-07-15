@@ -1,0 +1,25 @@
+<h1 style="text-align: center;">最終学歴</h1>
+<%= form_for @student_check, url: employee_info_student_checks_path(params[:employee_info_id]) do |f| %>
+
+	全日制:
+	<%= f.radio_button :all, :yes %>
+  	<%= f.label :all, "-", {value: :false, style: "display: inline-block;"} %>
+  	<%= f.radio_button :all, :no %>
+  	<%= f.label :all, "◯", {value: :true, style: "display: inline-block;"} %> <br>
+
+	夜間制:
+	<%= f.radio_button :night, :yes %>
+  	<%= f.label :night, "-", {value: :false, style: "display: inline-block;"} %>
+  	<%= f.radio_button :night, :no %>
+  	<%= f.label :night, "◯", {value: :true, style: "display: inline-block;"} %> <br>	
+
+
+	通信制:
+	<%= f.radio_button :remote, :yes %>
+  	<%= f.label :remote, "-", {value: :false, style: "display: inline-block;"} %>
+  	<%= f.radio_button :remote, :no %>
+  	<%= f.label :remote, "◯", {value: :true, style: "display: inline-block;"} %> <br>	
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

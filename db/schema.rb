@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_094025) do
+ActiveRecord::Schema.define(version: 2020_07_12_091642) do
+
+  create_table "bank_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "bank_name"
+    t.string "bank_name_other"
+    t.string "branch_name"
+    t.string "sales_office"
+    t.string "yucho_bank"
+    t.integer "bank_type"
+    t.string "account_number"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "c_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "treatment_decision_method"
@@ -138,6 +151,164 @@ ActiveRecord::Schema.define(version: 2020_07_10_094025) do
     t.string "dining_room"
     t.string "changing_room"
     t.integer "c_main_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "name_kana"
+    t.string "who_is_this"
+    t.string "address"
+    t.string "tel"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "edu_year"
+    t.integer "edu_month"
+    t.string "edu_day"
+    t.integer "status"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employee_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "employee_id"
+    t.string "employee_last_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.integer "sex"
+    t.date "birth"
+    t.integer "age"
+    t.string "postal_code"
+    t.string "address"
+    t.string "tel_first"
+    t.string "tel_second"
+    t.string "email_first"
+    t.string "email_last"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employment_periods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "start"
+    t.date "finish"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "family_number"
+    t.boolean "spouse"
+    t.boolean "obligation"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "labor_management_agreements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.boolean "agreement_check"
+    t.date "labor_start"
+    t.date "labor_fin"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "labor_standards_acts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "max_work_day"
+    t.integer "max_work_month"
+    t.integer "max_work_year"
+    t.integer "holiday_work_time"
+    t.text "detail"
+    t.integer "max_work_day_special"
+    t.integer "max_work_month_special"
+    t.integer "max_work_year_special"
+    t.integer "extension_time"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "qualifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "year"
+    t.integer "month"
+    t.string "name"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "residence_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.boolean "copy"
+    t.string "resi_id"
+    t.string "citizenship"
+    t.boolean "residence"
+    t.date "limit"
+    t.string "update_check"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "social_insurances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "employment_insurance_number"
+    t.date "employment_insurance_start"
+    t.date "employment_insurance_fin"
+    t.string "insurance_number"
+    t.date "insurance_start"
+    t.date "insurance_fin"
+    t.string "insurance_others"
+    t.text "details"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "student_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "school_name"
+    t.string "student_id"
+    t.boolean "student_card_copy"
+    t.date "student_limit"
+    t.string "student_last"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "student_checks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.boolean "all"
+    t.boolean "night"
+    t.boolean "remote"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "work_experiences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "work_year"
+    t.integer "work_month"
+    t.string "work_name"
+    t.integer "employee_info_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "work_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "work_style"
+    t.integer "start_day"
+    t.integer "transfer_day"
+    t.string "work_department"
+    t.string "work_type"
+    t.integer "tax"
+    t.integer "employee_info_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

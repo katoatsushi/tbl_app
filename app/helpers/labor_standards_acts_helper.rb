@@ -1,0 +1,2 @@
+module LaborStandardsActsHelper
+end

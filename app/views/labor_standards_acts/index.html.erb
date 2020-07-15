@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Labor Standards Acts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labor_standards_acts.each do |labor_standards_act| %>
+      <tr>
+        <td><%= link_to 'Show', labor_standards_act %></td>
+        <td><%= link_to 'Edit', edit_labor_standards_act_path(labor_standards_act) %></td>
+        <td><%= link_to 'Destroy', labor_standards_act, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Labor Standards Act', new_labor_standards_act_path %>

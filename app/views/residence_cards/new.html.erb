@@ -1,0 +1,19 @@
+<h1 style="text-align: center;">最終学歴</h1>
+<%= form_for  @residence_card, url: employee_info_residence_cards_path(params[:employee_info_id]) do |f| %>
+
+
+	写し（有・無:
+	<%= f.radio_button :copy, :yes %>
+  	<%= f.label :copy, "有", {value: :true, style: "display: inline-block;"} %>
+  	<%= f.radio_button :copy, :no %>
+  	<%= f.label :copy, "無し", {value: :false, style: "display: inline-block;"} %> <br>
+
+	番号No:	<%= f.text_field :resi_id %><br>  	
+	国籍:	<%= f.text_field :citizenship %><br>  
+	在留資格:	<%= f.text_field :residence %><br>  
+	在留期限: <%= f.text_field :limit %>	<br>  
+	更新中確認:<%= f.text_field :update_check %>	<br>  	
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+

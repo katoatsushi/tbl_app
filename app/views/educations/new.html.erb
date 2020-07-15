@@ -1,0 +1,15 @@
+<h1 style="text-align: center;">最終学歴</h1>
+<%= form_for @education, url: employee_info_educations_path(params[:employee_info_id]) do |f| %>
+
+	学歴年:	<%= f.number_field :edu_year %>
+	学歴月:	<%= f.number_field :edu_month %>
+	学校名:	<%= f.text_field :edu_day %>
+
+	在学中/卒業:
+	<%= f.radio_button :status, :yes %>
+  	<%= f.label :status, "在学中", {value: :true, style: "display: inline-block;"} %>
+  	<%= f.radio_button :status, :no %>
+  	<%= f.label :status, "卒業", {value: :false, style: "display: inline-block;"} %> <br>	
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
+
