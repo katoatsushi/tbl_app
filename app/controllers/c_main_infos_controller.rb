@@ -1,5 +1,7 @@
 class CMainInfosController < ApplicationController
   before_action :set_c_main_info, only: [:show, :edit, :update, :destroy]
+  def top
+  end
 
   def index
     @c_main_infos = CMainInfo.all

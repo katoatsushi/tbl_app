@@ -1,6 +1,43 @@
-<h1>Editing Employee Info</h1>
+<h1 style="text-align: center;">基本情報</h1>
+<%= form_for @employee_info do |f| %>
 
-<%= render 'form', employee_info: @employee_info %>
+従業員コードNo(主キー):<%= f.text_field :employee_id %><br> 	
+
+末尾No:<%= f.text_field :employee_last_id %><br> 	
+氏名（カタカナ）　姓:	<%= f.text_field :first_name %><br> 
+氏名（カタカナ）　名:	<%= f.text_field :last_name %><br> 
+ヨミガナ（Name)　姓:	<%= f.text_field :first_name_kana %><br> 
+ヨミガナ（Name)　名:	<%= f.text_field :last_name_kana %><br> 
+性　別:	
+<%= f.radio_button :sex, :male %>
+<%= f.label :sex, "男性", {value: :male, style: "display: inline-block;"} %>
+<%= f.radio_button :sex, :female %>
+<%= f.label :sex, "女性", {value: :female, style: "display: inline-block;"} %> 
+<%= f.radio_button :sex, :unisex %>
+<%= f.label :sex, "回答しない", {value: :unisex, style: "display: inline-block;"} %><br>
+<%#= f.date_select :birth, {}, class: 'form-control' %>
+
+生年月日:<%= raw sprintf(
+              f.date_select(
+                  :birth,
+                  use_month_numbers: true,
+                  start_year:        1900,
+                  end_year:          (Time.now.year),
+                  default:           Date.new(2000, 6, 15),
+                  date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+              '年 ', '月 ') + '日'
+%><br>
+
+
+年齢:	<%= f.number_field :age ,min: 0 ,max:200, value: 20 %><br> 
+〒:	<%= f.text_field :postal_code %><br> 
+住所（給与ソフト:）	<%= f.text_field :address %><br> 
+連絡先１:<%= f.text_field :tel_first  %>	<br> 
+連絡先２:	<%= f.text_field :tel_second %><br> 
+ﾒｰﾙｱﾄﾞﾚｽ１:	<%= f.text_field :email_first %><br> 
+ﾒｰﾙｱﾄﾞﾚｽ２:	<%= f.text_field :email_last %><br> 
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>
 
 <%= link_to 'Show', @employee_info %> |
 <%= link_to 'Back', employee_infos_path %>

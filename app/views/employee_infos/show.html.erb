@@ -1,4 +1,87 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_employee_info_path(@employee_info) %> |
-<%= link_to 'Back', employee_infos_path %>
+
+<h1> 正社員・パート社員詳細情報</h1>
+<br><br>
+<div class="row" style="font-size: 20px; ">
+	<div class="col-md-2 grey under-line top-line"> 社員番号</div>
+	<div class="col-md-7 under-line top-line"><%= @employee_info.employee_id %></div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line"> 氏名 </div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.first_name %><%= @employee_info.last_name %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">氏名(カナ)</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.first_name_kana %> <%= @employee_info.last_name_kana %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">性別</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.sex %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">生年月日</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.birth.year %>年
+		<%= @employee_info.birth.month %>月
+		<%= @employee_info.birth.day %>日
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">年齢</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.age %>才
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">郵便番号</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.postal_code %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">住所</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.address %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">電話番号</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.tel_first %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">電話番号2</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.tel_second %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">メールアドレス1</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.email_first %>
+	</div>
+	<div class="col-md-3"></div>
+
+	<div class="col-md-2 grey under-line">メールアドレス2</div>
+	<div class="col-md-7 under-line">
+		<%= @employee_info.email_last %>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+<br>
+<div>
+<%= link_to '更 新', edit_employee_info_path(@employee_info), class: "btn btn-outline-success botton" %> 
+<%= link_to '勤怠参照', root_path, class: "btn btn-outline-success botton" %> 
+<%= link_to '派遣記録', root_path, class: "btn btn-outline-success botton" %>
+</div> 
+
+
+

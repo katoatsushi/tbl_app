@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.grey {
+	background-color: #DDDDDD;
+}
+
+.under-line {
+	border-bottom: inset 1px grey;
+}
+.top-line {
+	border-top: inset 1px #C0C0C0;
+}
+
+.botton {
+	margin: 10px;
+	font-size: 20px;
+}

@@ -10,6 +10,7 @@ class EmployeeInfosController < ApplicationController
   # GET /employee_infos/1
   # GET /employee_infos/1.json
   def show
+    set_employee_info
   end
 
   # GET /employee_infos/new
@@ -19,6 +20,7 @@ class EmployeeInfosController < ApplicationController
 
   # GET /employee_infos/1/edit
   def edit
+    @employee_info
   end
 
   # POST /employee_infos
@@ -35,6 +37,13 @@ class EmployeeInfosController < ApplicationController
   # PATCH/PUT /employee_infos/1
   # PATCH/PUT /employee_infos/1.json
   def update
+    @employee_info
+    @employee_info.update(employee_info_params)
+    if @employee_info.save
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end 
   end
 
   # DELETE /employee_infos/1
