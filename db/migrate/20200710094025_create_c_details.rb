@@ -1,6 +1,7 @@
 class CreateCDetails < ActiveRecord::Migration[6.0]
   def change
     create_table :c_details do |t|
+    	# 個別契約内容
       t.integer :treatment_decision_method
       t.string :name
       t.string :place

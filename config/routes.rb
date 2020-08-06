@@ -7,11 +7,13 @@ Rails.application.routes.draw do
     resources :c_main_infos, only: [:new, :create, :edit, :update, :index]
 	
 	resources :c_main_infos, only: [:show] do
+		resources :contract_employees, only: [:new, :create, :show, :index]
 		resources :c_details, only: [:new, :create, :show]
 		resources :c_times, only: [:new, :create, :show]
 		resources :c_others, only: [:new, :create, :show]
 		resources :c_welfares, only: [:new, :create, :show]	
-		resources :c_origins, only: [:new, :create, :show]		
+		resources :c_origins, only: [:new, :create, :show]	
+		resources :c_limits, only: [:new, :create, :show]	
 	end
 
     resources :employee_infos, only: [:new, :create, :edit, :update, :show, :index]	

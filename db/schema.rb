@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_091642) do
+ActiveRecord::Schema.define(version: 2020_08_03_095316) do
 
   create_table "bank_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "bank_name"
@@ -60,12 +60,16 @@ ActiveRecord::Schema.define(version: 2020_07_12_091642) do
   end
 
   create_table "c_limits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "conflict_days"
+    t.date "business_unit_unit_conflict_day"
+    t.date "three_years_later"
+    t.integer "c_main_info_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "c_main_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "uuid"
+    t.integer "contract_id"
     t.integer "dispatch_personnel"
     t.integer "year"
     t.integer "month"
@@ -166,6 +170,49 @@ ActiveRecord::Schema.define(version: 2020_07_12_091642) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "contract_employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "c_main_info_id"
+    t.integer "employee_info_id"
+    t.integer "per_hour"
+    t.integer "out_of_hour"
+    t.integer "night"
+    t.integer "off_work"
+    t.integer "on_legal_holiday"
+    t.integer "out_of_hour_rate"
+    t.integer "night_rate"
+    t.integer "off_work_rate"
+    t.integer "on_legal_holiday_rate"
+    t.integer "commuting_allowance"
+    t.string "pay_day"
+    t.text "health_not_sub"
+    t.text "em_health_not_sub"
+    t.text "em_not_sub"
+    t.date "start_job_day"
+    t.date "syaty_job"
+    t.date "certificate"
+    t.date "finish_day"
+    t.string "emp_style"
+    t.string "update_check"
+    t.date "education"
+    t.float "edu_time"
+    t.string "edu_detail"
+    t.date "education_b"
+    t.float "edu_time_b"
+    t.string "edu_detail_b"
+    t.float "edu_time_c"
+    t.string "edu_safety"
+    t.string "esm"
+    t.date "esm_date"
+    t.string "esm_way"
+    t.date "answer_date"
+    t.text "answer"
+    t.string "referral_destination"
+    t.string "other_measure"
+    t.text "other_detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "edu_year"
     t.integer "edu_month"
@@ -177,8 +224,8 @@ ActiveRecord::Schema.define(version: 2020_07_12_091642) do
   end
 
   create_table "employee_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "employee_id"
-    t.string "employee_last_id"
+    t.integer "employee_id"
+    t.integer "employee_last_id"
     t.string "first_name"
     t.string "last_name"
     t.string "first_name_kana"

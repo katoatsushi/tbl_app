@@ -1,0 +1,443 @@
+<h1>個別契約詳細</h1>
+<%= link_to "派遣社員追加", new_c_main_info_contract_employee_path(c_main_info_id: @c_main_info.id) %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+        <%= link_to "個別契約管理番号",c_main_info_contract_employees_path(c_main_info_id: @c_main_info.id)  %>
+    </th> 
+      <th scope="col"></th>
+      <th scope="col"><%= @c_main_info.contract_id %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>派遣人員</td>
+      <td></td>
+      <td><%= @c_main_info.dispatch_personnel %></td>
+    </tr>
+    <tr>
+      <td>個別契約期間西暦</td>
+      <td></td>
+      <td><%= @c_main_info.year %>年<%= @c_main_info.month %>月<%= @c_main_info.day %>日</td>
+    </tr>
+    <tr>
+      <td>契約締日</td>
+      <td></td>
+      <td><%= @c_main_info.fin_date %></td>
+    </tr>
+    <tr>
+      <td>個別契約開始</td>
+      <td></td>
+      <td><%= @c_main_info.contract_start %></td>
+    </tr>
+    <tr>
+      <td>個別契約終了</td>
+      <td></td>
+      <td><%= @c_main_info.contract_finish %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="row">
+<table class="table table-striped col-md-5">
+  <% if !@detail.nil? %>
+  <thead>
+      <th colspan="2" scope="col" style="text-align: center;">個別契約内容</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>待遇決定方式</td>
+      <td><%= @detail.treatment_decision_method %></td>
+    </tr>
+    <tr>
+      <td>派遣先企業名</td>
+      <td><%= @detail.name %></td>
+    </tr>
+    <tr>
+      <td>派遣先住所</td>
+      <td><%= @detail.place %></td>
+    </tr>
+    <tr>
+      <td>派遣先連絡先</td>
+      <td><<%= @detail.tel %>/td>
+    </tr>
+    <tr>
+      <td>営業所名称/工場名</td>
+      <td><%= @detail.factory_name %></td>
+    </tr>
+    <tr>
+   	  <td>営業所所在地</td>
+      <td><%= @detail.factory_place %></td>
+    </tr>
+    <tr>
+   	  <td>営業所連絡先</td>
+      <td><%= @detail.factory_tel %></td>
+    </tr>
+    <tr>
+      <td>就業部署名</td>    	
+      <td><%= @detail.factory_department %></td>
+    </tr>
+    <tr>
+      <td>就業場所TEL</td>    	
+      <td><%= @detail.factory_department_tel %></td>
+    </tr>
+    <tr>
+      <td>組織単位</td>    	
+      <td><%= @detail.party_num %></td>
+    </tr>
+    <tr>
+      <td>組織長役職</td>    	
+      <td><%= @detail.party_position %></td>
+    </tr>
+    <tr>
+      <td>指揮命令者部署</td>    	
+      <td><%= @detail.command_and_order_department %></td>
+    </tr>
+    <tr>
+      <td>指揮命令者役職</td>    	
+      <td><%= @detail.command_and_order_position %></td>
+    </tr>
+    <tr>
+      <td>指揮命令者氏名</td>    	
+      <td><%= @detail.command_and_order_name %></td>
+    </tr>
+    <tr>
+      <td>指揮命令者TEL</td>    	
+      <td><%= @detail.command_and_order_tel %></td>
+    </tr>
+    <tr>
+      <td>製造業務専門派遣先責任者部署</td>    	
+      <td><%= @detail.manu_ope_from_department %></td>
+    </tr>
+    <tr>
+      <td>製造業務専門派遣先責任者役職</td>    	
+      <td><%= @detail.manu_ope_from_position %></td>
+    </tr>
+    <tr>
+      <td>製造業務専門派遣先責任者氏名</td>    	
+      <td><%= @detail.manu_ope_from_name %></td>
+    </tr>
+    <tr>
+      <td>製造業務専門派遣先責任者TEL</td>    	
+      <td><%= @detail.manu_ope_from_tel %></td>
+    </tr>
+    <tr>
+      <td>派遣先苦情処理申出先部署</td>    	
+      <td><%= @detail.complaint_department_to %></td>
+    </tr>
+    <tr>
+      <td>派遣先苦情処理申出先役職</td>    	
+      <td><%= @detail.complaint_position_to %></td>
+    </tr>
+    <tr>
+      <td>派遣先苦情処理申出先氏名</td>    	
+      <td><%= @detail.complaint_name_to %></td>
+    </tr>
+    <tr>
+      <td>派遣先苦情処理申出先TEL</td>    	
+      <td><%= @detail.complaint_tel_to %></td>
+    </tr>
+    <tr>
+      <td>契約先郵便番号</td>    	
+      <td><%= @detail.customer_postal_code %></td>
+    </tr>
+    <tr>
+      <td>契約先住所</td>    	
+      <td><%= @detail.customer_place %></td>
+    </tr>
+    <tr>
+      <td>契約確認者役職</td>    	
+      <td><%= @detail.customer_position %></td>
+    </tr>
+    <tr>
+      <td>契約確認者氏名</td>    	
+      <td><%= @detail.customer_name %></td>
+    </tr>
+    <tr>
+      <td>業務内容</td>    	
+      <td><%= @detail.work_detail %></td>
+    </tr>
+  </tbody>
+  <% end %>
+  <thead>
+    <tr>
+		<th colspan="2" scope="col" style="text-align: center;">労働者派遣の期間制限に抵触する日</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td >抵触日単位</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td >事業所単位抵触日</td>
+      <td ></td>
+    </tr>
+    <tr>
+      <td>組織単位の抵触日</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="col-md-1"></div>
+<% if !@time.nil? %>
+<table class="table table-striped col-md-6">
+  <thead>
+    <tr>
+    	<th colspan="4" scope="col" style="text-align: center;">就業日・時間</th>   
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">就業日</td>
+      <td colspan="2"><%= @time.work_start_day %></td>
+    </tr>
+    <tr>
+      <td colspan="2">週単位の時間外の有無</td>
+      <td colspan="2"><%= @time.out_of_work %></td>
+    </tr>
+    <tr>
+      <td colspan="2">週の起算日</td>
+      <td colspan="2"><%= @time.start_date %></td>
+    </tr>
+    <tr>
+      <td colspan="2">所定労働時間（請求時）</td>
+      <td colspan="2"><%= @time.work_total_time %></td>
+    </tr>
+    <tr>
+      <td colspan="2">計算単位(分)</td>
+      <td colspan="2"><%= @time.per_min %></td>
+    </tr>
+    <tr>
+      <td colspan="2">変形労働時間制度の有無</td>
+      <td colspan="2"><%= @time.work_type_bool %></td>
+    </tr>
+    <tr>
+      <td colspan="2">交替勤務</td>
+      <td colspan="2"><%= @time.work_change %></td>
+    </tr>
+    <tr><td colspan="4" class="table-success">シフトA</td></tr>  
+    <tr>
+    	<td>A勤務時間帯</td>
+    	<td>A所定労働時間</td>
+    	<td>A休憩時間</td>
+    	<td>A総休憩時間</td>
+    </tr>
+    <tr>
+      <td><%= @time.work_range_a %></td>
+      <td><%= @time.regular_work_range_a %></td>
+      <td><%= @time.break_time_a %></td>
+      <td><%= @time.total_break_time_a %></td>
+    </tr>
+    <tr><td colspan="4" class="table-success">シフトB</td></tr>      
+    <tr>
+    	<td>B勤務時間帯</td>
+    	<td>B所定労働時間</td>
+    	<td>B休憩時間</td>
+    	<td>B総休憩時間</td>
+    </tr>
+    <tr>
+      <td><%= @time.work_range_b %></td>
+      <td><%= @time.regular_work_range_b %></td>
+      <td><%= @time.break_time_b %></td>
+      <td><%= @time.total_break_time_b %></td>
+    </tr>
+    <tr><td colspan="4" class="table-success">シフトC</td></tr>    
+    <tr>
+    	<td>C勤務時間帯</td>
+    	<td>C所定労働時間</td>
+    	<td>C休憩時間</td>
+    	<td>C総休憩時間</td>
+    </tr>
+    <tr>
+      <td><%= @time.work_range_c %></td>
+      <td><%= @time.regular_work_range_c %></td>
+      <td><%= @time.break_time_c %></td>
+      <td><%= @time.total_break_time_c %></td>
+    </tr>
+    <tr><td colspan="4" class="table-success">シフトD</td></tr>
+    <tr>
+    	<td>D勤務時間帯</td>
+    	<td>D所定労働時間</td>
+    	<td>D休憩時間</td>
+    	<td>D総休憩時間</td>
+    </tr>
+    <tr>
+      <td><%= @time.work_range_d %></td>
+      <td><%= @time.regular_work_range_d %></td>
+      <td><%= @time.break_time_d %></td>
+      <td><%= @time.total_break_time_d %></td>
+    </tr>
+    <tr><td colspan="4" class="table-success">シフトE</td></tr>
+    <tr>
+    	<td>E勤務時間帯</td>
+    	<td>E所定労働時間</td>
+    	<td>E休憩時間</td>
+    	<td>E総休憩時間</td>
+    </tr>
+    <tr>
+      <td><%= @time.work_range_e %></td>
+      <td><%= @time.regular_work_range_e %></td>
+      <td><%= @time.break_time_e %></td>
+      <td><%= @time.total_break_time_e %></td>
+    </tr>
+	<tr><td colspan="4" class="table-success">請求単価</td></tr>
+    <tr>
+      <td colspan="2">時間外単価</td>
+      <td colspan="2"><%= @time.overtime_unit_price %></td>
+    </tr>
+    <tr>
+      <td colspan="2">法定休日単価</td>
+      <td colspan="2"><%= @time.legal_holiday_unit_price %></td>
+    </tr>
+    <tr>
+      <td colspan="2">深夜割増単価</td>
+      <td colspan="2"><%= @time.midnight_premium_unit_price %></td>
+    </tr>
+    <tr>
+      <td colspan="2">締日</td>
+      <td colspan="2"><%= @time.deadine %></td>
+    </tr>
+    <tr>
+      <td colspan="2">支払日</td>
+      <td colspan="2"><%= @time.date_of_payment %></td>
+    </tr>
+    <tr>
+      <td colspan="2">端数処理</td>
+      <td colspan="2"><%= @time.rounding %></td>
+    </tr>
+    <% end %>
+    <% if !@other.nil? %>
+	  <thead>
+	    <tr>
+		<th colspan="4" scope="col" style="text-align: center;">その他就業条件</th>      
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td colspan="2">責任の有無</td>
+	      <td colspan="2"><%= @other.responsibility %></td>
+	    </tr>
+	    <tr>
+	      <td colspan="2">責任の程度</td>
+	      <td colspan="2"><%= @other.responsibility_proportion %></td>
+	    </tr>
+	    <tr>
+	      <td colspan="2">派遣労働者の限定</td>
+	      <td colspan="2"><%= @other.limit_of_temporary_worker %></td>
+	    </tr>
+	  </tbody>
+	  <% end %>
+	  <% if !@welfare.nil? %>
+	  <thead>
+	    <tr>
+		<th colspan="4" scope="col" style="text-align: center;">福利厚生</th>      
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>制服</td>
+	      <td>靴</td>
+	      <td>社員食堂</td>
+	      <td>更衣室</td>
+	    </tr>
+	    <tr>
+	      <td><%= @welfare.uniform %></td>
+	      <td><%= @welfareshoes %></td>
+	      <td><%= @welfare.dining_room %></td>
+	      <td><%= @welfare.changing_room %></td>
+	    </tr>
+	  </tbody>
+	  <% end %>
+</table>
+
+<table class="table table-striped col-md-12">
+	<% if !@origin.nil? %>
+	  <thead>
+	    <tr>
+		<th  colspan="2" scope="col" style="text-align: center;">派遣元情報</th>      
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>発行元</td>
+	      <td><%= @origin.origin %></td>
+	    </tr>
+	    <tr>
+	      <td>派遣会社名</td>
+	      <td><%= @origin.origin_company %></td>
+	    </tr>
+	    <tr>
+	      <td>郵便番号〒</td>
+	      <td><%= @origin.origin_postal_code %></td>
+	    </tr>
+	    <tr>
+	      <td>発行元住所</td>
+	      <td><%= @origin.origin_place %></td>
+	    </tr>
+	    <tr>
+	      <td>派遣会社代表者</td>
+	       <td><%= @origin.origin_president %></td>
+	     </tr>
+	    <tr>
+	      <td>労働者派遣許可番号</td>
+	      <td><%= @origin.worker_dispatch_permit_number %></td>
+	     </tr>
+	    <tr>
+	      <td>製造業務専門派遣元責任者部署</td>
+	      <td><%= @origin.manu_ope_to_department %></td>
+	    </tr>
+	    <tr>
+	      <td>製造業務専門派遣元責任者役職</td>
+	      <td><%= @origin.manu_ope_to_position %></td>
+	    </tr>
+	    <tr>
+	      <td>製造業務専門派遣元責任者氏名</td>
+	      <td><%= @origin.manu_ope_to_name %></td>
+	    </tr>
+	    <tr>
+	      <td>製造業務専門派遣元責任者TEL</td>
+	      <td><%= @origin.manu_ope_to_tel %></td>
+	    </tr>
+	    <tr>
+	      <td>派遣元苦情処理申出先部署</td>
+	      <td><%= @origin.complaint_department_from %></td>
+	    </tr>
+	    <tr>
+	      <td>派遣元苦情処理申出先役職</td>
+	      <td><%= @origin.complaint_position_from %></td>
+	    </tr>
+	    <tr>
+	      <td>派遣元苦情処理申出先氏名</td>
+	      <td><%= @origin.complaint_name_from %></td>
+	    </tr>
+	    <tr>
+	      <td>派遣元苦情処理申出先TEL</td>
+	      <td><%= @origin.complaint_tel_from %></td>
+	    </tr>
+	  </tbody>
+	  <% end %>
+</table>
+
+</div>
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

@@ -1,6 +1,7 @@
 class CreateCOthers < ActiveRecord::Migration[6.0]
   def change
     create_table :c_others do |t|
+      # その他就業条件
     	t.boolean :responsibility
     	t.text :responsibility_proportion
     	t.text :limit_of_temporary_worker

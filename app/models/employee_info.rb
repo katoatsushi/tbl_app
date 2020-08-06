@@ -13,4 +13,5 @@ class EmployeeInfo < ApplicationRecord
 	has_one :bank_account
 	has_one :contact
 	has_one :education
+	has_many :contract_employee
 end

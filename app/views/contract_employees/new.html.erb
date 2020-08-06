@@ -1,0 +1,136 @@
+<%#= render 'form', contract_employee: @contract_employee %>
+<%#= link_to 'Back', contract_employees_path %>
+
+<h1 style="text-align: center;">派遣社員情報入力</h1>
+<%= form_for @contract_employee, url: c_main_info_contract_employees_path(c_main_info_id: params[:c_main_info_id]) do |f| %>
+
+		
+		# 従業員コードNo
+		t.integer :employee_info_id
+<div class="row">
+		 <div class="col-md-4">支払単価:<%= f.number_field :per_hour %></div>
+		 <div class="col-md-4">残業時給:	<%= f.number_field :out_of_hour %></div>
+		 <div class="col-md-4">深夜割増時給:	<%= f.number_field :night %></div>
+		 <div class="col-md-4">法定外休労働時給:  <%= f.number_field :off_work %></div>
+		 <div class="col-md-4">法定休日労働時給:  <%= f.number_field :on_legal_holiday %></div>
+</div>
+		 <!-- 時間外割増率:  <%#= f.number_field :out_of_hour_rate%>
+		 深夜割増率:  <%#= f.number_field :night_rate %>
+		 休日割増率:  <%#= f.number_field :off_work_rate %>
+		 法定休日割増率:  <%#= f.number_field :on_legal_holiday_rate %> -->
+		 通勤手当/日 <%= f.number_field :commuting_allowance %>
+		 給料日 <%= f.text_field :pay_day %><hr>
+
+		 健康保険未加入理由 <%= f.text_area :health_not_sub %>
+		 厚生年金保険未加入理由 <%= f.text_area :em_health_not_sub %>
+		 雇用保険未加入理由 <%= f.text_area :em_not_sub %>
+		 <hr>
+		入職（予定）日:<%= raw sprintf(
+		              f.date_select(
+		                  :start_job_day,
+		                  use_month_numbers: true,
+		                  start_year:        Time.now.year-2,
+		                  end_year:          (Time.now.year),
+		                  default:           Date.new(2000, 6, 15),
+		                  date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		              '年 ', '月 ') + '日'
+		%><br>
+
+		 雇入通知書兼就業条件明示書の雇用期間欄開始日:<%= raw sprintf(
+		              f.date_select(
+		                  :syaty_job,
+		                  use_month_numbers: true,
+		                  start_year:        Time.now.year-2,
+		                  end_year:          (Time.now.year),
+		                  default:           Date.new(2000, 6, 15),
+		                  date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		              '年 ', '月 ') + '日'
+		%><br>
+		明示書発行日:<%= raw sprintf(
+		     f.date_select(
+		        :certificate,
+		         use_month_numbers: true,
+		         start_year:        Time.now.year-2,
+		         end_year:          (Time.now.year),
+		         default:           Date.new(2000, 6, 15),
+		         date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		         '年 ', '月 ') + '日'
+		%><br>
+		 
+		雇入通知書兼就業条件明示書の雇用期間欄終了日:<%= raw sprintf(
+		     f.date_select(
+		        :finish_day,
+		         use_month_numbers: true,
+		         start_year:        Time.now.year-2,
+		         end_year:          (Time.now.year),
+		         default:           Date.new(2000, 6, 15),
+		         date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		         '年 ', '月 ') + '日'
+		%><br>
+
+
+		雇用形態 <%= f.text_field :emp_style %>
+		更新（有無）<%= f.text_field :update_check %>
+		<hr>
+
+		入社前教育日付 :<%= raw sprintf(
+		     f.date_select(
+		        :education,
+		         use_month_numbers: true,
+		         start_year:        Time.now.year-2,
+		         end_year:          (Time.now.year),
+		         default:           Date.new(2000, 6, 15),
+		         date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		         '年 ', '月 ') + '日'
+		%><br>
+		 時間　<%= f.number_field :edu_time, step: "0.01" %>
+		 入社前教育　<%= f.text_field :edu_detail %>
+		 <br>
+
+		入社時教育日付 :<%= raw sprintf(
+		     f.date_select(
+		        :education_b,
+		         use_month_numbers: true,
+		         start_year:        Time.now.year-2,
+		         end_year:          (Time.now.year),
+		         default:           Date.new(2000, 6, 15),
+		         date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		         '年 ', '月 ') + '日'
+		%><br>
+		 時間 <%= f.number_field :edu_time_b, step: "0.01" %>
+		 入社時教育 <%= f.text_field :edu_detail_b %><br>
+		 時間 <%= f.number_field :edu_time_c, step: "0.01" %>
+		 入社時安全教育 <%= f.text_field :edu_safety %>
+		 <hr>
+		雇用安定措置の内容 <%= f.text_field :esm %>
+
+		依頼日時 :<%= raw sprintf(
+		     f.date_select(
+		        :esm_date,
+		         use_month_numbers: true,
+		         start_year:        Time.now.year-2,
+		         end_year:          (Time.now.year),
+		         default:           Date.new(2000, 6, 15),
+		         date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		         '年 ', '月 ') + '日'
+		%><br>
+
+		 依頼方法 <%= f.text_field :esm_way %>
+		回答日時 :<%= raw sprintf(
+		     f.date_select(
+		        :answer_date,
+		         use_month_numbers: true,
+		         start_year:        Time.now.year-2,
+		         end_year:          (Time.now.year),
+		         default:           Date.new(2000, 6, 15),
+		         date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+		         '年 ', '月 ') + '日'
+		%><br>
+		 回答 <%= f.text_area :answer %>
+		 紹介派遣先 <%= f.text_field :referral_destination %>
+		 その他の措置 <%= f.text_field :other_measure %>
+		 備考（配属日、異動日、終了日などの特記事項を記入） <%= f.text_area :other_detail %>
+	
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+
+<% end %>

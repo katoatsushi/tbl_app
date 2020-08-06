@@ -1,0 +1,30 @@
+<h1>管理番号詳細</h1>
+<br><br><br>
+<h2>管理番号：<%= @main_info.contract_id %></h2>
+<h2>派遣人数：<%= @main_info.dispatch_personnel %></h2>
+
+
+<% @contract_employees.each do |c_e| %>
+<% em = c_e.employee_info %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">管理番号</th>
+      <th scope="col">管理番号末尾</th>
+      <th scope="col">姓</th>
+      <th scope="col">名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"> <%= em.employee_id%></th>
+      <td><%= em.employee_last_id %></td>
+      <td><%= em.first_name %></td>
+      <td><%= em.last_name %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+
+
+<%= link_to '新しく追加', new_c_main_info_contract_employee_path(c_main_info_id: params[:c_main_info_id]) %>

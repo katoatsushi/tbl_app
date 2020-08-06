@@ -9,6 +9,11 @@ class CMainInfosController < ApplicationController
 
 
   def show
+     @detail = @c_main_info.c_detail #個別契約内容
+     @time = @c_main_info.c_time #就業日・時間
+     @other = @c_main_info.c_other #その他就業条件
+     @welfare = @c_main_info.c_welfare #福利厚生
+     @origin = @c_main_info.c_origin # 派遣元情報
   end
 
   def edit
@@ -16,6 +21,7 @@ class CMainInfosController < ApplicationController
 
   def new
     @c_main_info = CMainInfo.new
+    @info_id = params[:c_main_info_id]
   end
 
   def create
@@ -45,7 +51,7 @@ class CMainInfosController < ApplicationController
     def c_main_info_params
       params.require(:c_main_info)
       .permit(
-        :uuid,
+        :contract_id,
         :dispatch_personnel,
         :year,
         :month,

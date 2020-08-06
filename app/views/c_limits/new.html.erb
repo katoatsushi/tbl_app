@@ -1,0 +1,8 @@
+<h1 style="text-align: center;">個別契約基本情報</h1>
+<%= form_for @c_limit, url:   c_main_info_c_limits_path(params[:c_main_info_id]) do |f| %>
+	抵触日単位：<%= f.text_field :conflict_days %><br> 
+	事業所単位抵触日	：<%= f.date_select :business_unit_unit_conflict_day, {}, class: 'form-control' %><br>
+	組織単位の抵触日組織単位（課）の配属日から3年：<%= f.date_select :three_years_later, {}, class: 'form-control' %><br>
+
+	<%=f.submit '作成', class: 'btn btn-primary btn-lg btn-block' %>
+<%end%>

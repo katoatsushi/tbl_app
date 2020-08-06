@@ -1,6 +1,7 @@
 class CreateCOrigins < ActiveRecord::Migration[6.0]
   def change
     create_table :c_origins do |t|
+      # 派遣元情報
       t.string :origin
       t.string :origin_company
       t.string :origin_postal_code

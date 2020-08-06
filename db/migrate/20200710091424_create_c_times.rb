@@ -1,6 +1,7 @@
 class CreateCTimes < ActiveRecord::Migration[6.0]
   def change
     create_table :c_times do |t|
+        # 就業日・時間
     	t.string :work_start_day
     	t.boolean :out_of_work
     	t.string :start_date

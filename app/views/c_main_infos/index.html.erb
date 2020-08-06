@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>派遣社員管理  <%#= link_to "正社員・パート社員一覧", employee_infos_path %></h1>
-
+<h1>個別契約一覧  <%#= link_to "正社員・パート社員一覧", employee_infos_path %></h1><br>
 
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>契約基本情報ID</th>
+      <th>管理番号</th>
       <th>契約内容</th>
       <th>労働者派遣の期間制限に抵触する日</th>
       <th>就業日・時間</th>
@@ -19,26 +18,28 @@
   <tbody style="text-align: center;">
     <% @c_main_infos.each do |main| %>
       <tr>
-        <td><%= link_to "#{main.id}", main %></td>
+        <td><%= link_to "#{main.contract_id}", main %></td>
         <% if main.c_detail.nil? %>
           <td><%= link_to "作成", new_c_main_info_c_detail_path(main.id), class: "btn btn-outline-secondary btn-block" %></td>        
         <% else %>
           <td>
-            <%= link_to "見る", c_main_info_c_detail_path(main.id, main.c_detail.id), class: "btn btn-outline-info btn-block" %>            
+            <%#= link_to "見る", c_main_info_c_detail_path(main.id, main.c_detail.id), class: "btn btn-outline-info btn-block" %> 
+            ◯           
           </td>  
         <% end %>
 
-        <%# if main.c_limit.nil? %>
-          <td><%= link_to "作成", new_c_main_info_c_detail_path(main.id), class: "btn btn-outline-secondary btn-block" %></td>        
-        <%# else %>
-          <!-- <td></td>   -->
-        <%# end %>
+        <% if main.c_limit.nil? %>
+          <td><%= link_to "作成", new_c_main_info_c_limit_path(main.id), class: "btn btn-outline-secondary btn-block" %></td>        
+        <% else %>
+          <td>◯  </td>  
+        <% end %>
 
         <% if main.c_time.nil? %>
           <td><%= link_to "作成", new_c_main_info_c_time_path(main.id), class: "btn btn-outline-secondary btn-block " %></td>        
         <% else %>
           <td>
-            <%= link_to "見る", c_main_info_c_time_path(main.id, main.c_time.id), class: "btn btn-outline-info btn-block" %> 
+            <%#= link_to "見る", c_main_info_c_time_path(main.id, main.c_time.id), class: "btn btn-outline-info btn-block" %> 
+            ◯   
           </td>  
         <% end %>
 
@@ -46,7 +47,8 @@
           <td><%= link_to "作成", new_c_main_info_c_other_path(main.id), class: "btn btn-outline-secondary btn-block" %></td>        
         <% else %>
           <td>
-            <%= link_to "見る", c_main_info_c_other_path(main.id, main.c_other.id), class: "btn btn-outline-info btn-block" %> 
+            <%#= link_to "見る", c_main_info_c_other_path(main.id, main.c_other.id), class: "btn btn-outline-info btn-block" %> 
+            ◯   
           </td>  
         <% end %>
 
@@ -54,16 +56,17 @@
           <td><%= link_to "作成", new_c_main_info_c_welfare_path(main.id), class: "btn btn-outline-secondary btn-block" %></td>        
         <% else %>
           <td>
-            <%= link_to "見る", c_main_info_c_welfare_path(main.id, main.c_welfare.id), class: "btn btn-outline-info btn-block" %> 
+            <%#= link_to "見る", c_main_info_c_welfare_path(main.id, main.c_welfare.id), class: "btn btn-outline-info btn-block" %> 
+            ◯   
           </td>  
         <% end %>
-
 
         <% if main.c_origin.nil? %>
           <td><%= link_to "作成", new_c_main_info_c_origin_path(main.id), class: "btn btn-outline-secondary btn-block" %></td>        
         <% else %>
           <td>
-            <%= link_to "見る", c_main_info_c_origin_path(main.id, main.c_origin.id), class: "btn btn-outline-info btn-block" %>             
+            <%#= link_to "見る", c_main_info_c_origin_path(main.id, main.c_origin.id), class: "btn btn-outline-info btn-block" %>
+            ◯                
           </td>  
         <% end %>
 

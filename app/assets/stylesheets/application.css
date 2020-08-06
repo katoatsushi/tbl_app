@@ -29,3 +29,10 @@
 	margin: 10px;
 	font-size: 20px;
 }
+.width {
+	width: 50px;
+}
+
+.width-max {
+	width: 100%;
+}

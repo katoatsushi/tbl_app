@@ -1,6 +1,7 @@
 <h1 style="text-align: center;">個別契約基本情報</h1>
 <%= form_for @c_main_info, url:  c_main_infos_path do |f| %>
 
+	管理番号：<%= f.number_field :contract_id ,min: 0 ,max:1000, value: 20 %><br>
 	派遣人員：<%= f.number_field :dispatch_personnel ,min: 0 ,max:1000, value: 20 %>人<br>
 	個別契約期間西暦：<%= f.number_field :year ,min: 0 ,max:1000, value: 20 %>年<br>
 	個別契約期間月：<%= f.number_field :month ,min: 0 ,max:1000, value: 20 %>月<br>
