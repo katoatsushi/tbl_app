@@ -19,11 +19,10 @@ class SocialInsurancesController < ApplicationController
     @social_insurance = SocialInsurance.new(social_insurance_params)
     id = params[:employee_info_id]
     @social_insurance.employee_info_id = id 
-    binding.pry 
     if @social_insurance.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end
   end
 

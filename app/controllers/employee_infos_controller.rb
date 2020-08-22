@@ -27,6 +27,8 @@ class EmployeeInfosController < ApplicationController
   # POST /employee_infos.json
   def create
     @employee_info = EmployeeInfo.new(employee_info_params)
+    title = "#{@employee_info.employee_id}" + "#{@employee_info.employee_last_id}"+ "#{ @employee_info.first_name}"+ "#{@employee_info.last_name}"
+    @employee_info.select_title = title
     if @employee_info.save
       redirect_to root_path
     else
@@ -39,6 +41,8 @@ class EmployeeInfosController < ApplicationController
   def update
     @employee_info
     @employee_info.update(employee_info_params)
+    title = "#{@employee_info.employee_id}" + "#{@employee_info.employee_last_id}"+ "#{ @employee_info.first_name}"+ "#{@employee_info.last_name}"
+    @employee_info.select_title = title
     if @employee_info.save
       redirect_to root_path
     else
@@ -61,6 +65,7 @@ class EmployeeInfosController < ApplicationController
     def employee_info_params
      params.require(:employee_info)
       .permit(
+        :select_title,
         :employee_id,
         :employee_last_id,
         :first_name,

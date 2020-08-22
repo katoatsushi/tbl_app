@@ -27,7 +27,8 @@ class ContractEmployeesController < ApplicationController
   def create
     @contract_employee = ContractEmployee.new(contract_employee_params)
     @contract_employee.c_main_info_id = params[:c_main_info_id]
-    @contract_employee.employee_info_id = params[:employee_info_id]   
+    @contract_employee.employee_info_id = params[:contract_employee][:employee_info]   
+    binding.pry
     if  @contract_employee.save
       redirect_to root_path
     else

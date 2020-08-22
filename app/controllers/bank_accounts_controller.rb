@@ -28,9 +28,9 @@ class BankAccountsController < ApplicationController
     id = params[:employee_info_id]
     @bank_account.employee_info_id = id    
     if  @bank_account.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end    
   end
 

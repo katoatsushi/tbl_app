@@ -27,10 +27,10 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     id = params[:employee_info_id]
     @contact.employee_info_id = id    
-    if  @bank_account.save
-      redirect_to root_path
+    if @contact.save
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end     
   end
 

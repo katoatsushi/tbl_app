@@ -28,9 +28,9 @@ class WorkInfosController < ApplicationController
     id = params[:employee_info_id]
     @work_info.employee_info_id = id    
     if  @work_info.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end 
   end
 
@@ -53,7 +53,7 @@ class WorkInfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def work_info_params
-     params.require(:employee_info)
+     params.require(:work_info)
       .permit(
           # 入社区分  
           :work_style,

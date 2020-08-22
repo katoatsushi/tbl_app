@@ -28,9 +28,9 @@ class CTimesController < ApplicationController
     id = params[:c_main_info_id]
     @c_time.c_main_info_id = id
     if  @c_time.save
-      redirect_to root_path
+      redirect_to c_main_infos_path
     else
-      redirect_to root_path
+      redirect_to c_main_infos_path
     end
   end
 

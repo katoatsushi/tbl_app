@@ -20,9 +20,9 @@ class LaborStandardsActsController < ApplicationController
     id = params[:employee_info_id]
     @labor_standards_act.employee_info_id = id    
     if @labor_standards_act.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end 
   end
 

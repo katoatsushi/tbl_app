@@ -28,9 +28,9 @@ class StudentChecksController < ApplicationController
     id = params[:employee_info_id]
     @student_check.employee_info_id = id    
     if  @student_check.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end  
   end
 

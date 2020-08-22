@@ -1,6 +1,7 @@
 class CreateEmployeeInfos < ActiveRecord::Migration[6.0]
   def change
-    create_table :employee_infos do |t|
+	create_table :employee_infos do |t|
+		t.text :select_title
     	t.integer :employee_id
     	t.integer :employee_last_id
     	t.string :first_name

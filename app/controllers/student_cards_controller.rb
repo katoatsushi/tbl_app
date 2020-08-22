@@ -28,9 +28,9 @@ class StudentCardsController < ApplicationController
     id = params[:employee_info_id]
     @student_card.employee_info_id = id    
     if  @student_card.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end 
   end
 
@@ -53,7 +53,7 @@ class StudentCardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_card_params
-      params.require(:qualification)
+      params.require(:student_card)
       .permit(
           #在学中の学校 
           :school_name,

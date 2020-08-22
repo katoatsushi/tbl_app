@@ -26,9 +26,9 @@ class COthersController < ApplicationController
     id = params[:c_main_info_id]
     @c_other.c_main_info_id = id
     if  @c_other.save
-      redirect_to root_path
+      redirect_to c_main_infos_path
     else
-      redirect_to root_path
+      redirect_to c_main_infos_path
     end
   end
 

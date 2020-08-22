@@ -28,9 +28,9 @@ class QualificationsController < ApplicationController
     id = params[:employee_info_id]
     @qualification.employee_info_id = id    
     if  @qualification.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end 
   end
 

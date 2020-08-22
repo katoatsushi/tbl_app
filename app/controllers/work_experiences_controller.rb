@@ -28,9 +28,9 @@ class WorkExperiencesController < ApplicationController
     id = params[:employee_info_id]
     @work_experience.employee_info_id = id    
     if  @work_experience.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end 
   end
 

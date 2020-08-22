@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_03_095316) do
 
-  create_table "bank_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "bank_accounts", force: :cascade do |t|
     t.string "bank_name"
     t.string "bank_name_other"
     t.string "branch_name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "c_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "c_details", force: :cascade do |t|
     t.integer "treatment_decision_method"
     t.string "name"
     t.string "place"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "c_limits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "c_limits", force: :cascade do |t|
     t.string "conflict_days"
     t.date "business_unit_unit_conflict_day"
     t.date "three_years_later"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "c_main_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "c_main_infos", force: :cascade do |t|
     t.integer "contract_id"
     t.integer "dispatch_personnel"
     t.integer "year"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "c_origins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "c_origins", force: :cascade do |t|
     t.string "origin"
     t.string "origin_company"
     t.string "origin_postal_code"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "c_others", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "c_others", force: :cascade do |t|
     t.boolean "responsibility"
     t.text "responsibility_proportion"
     t.text "limit_of_temporary_worker"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "c_times", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "c_times", force: :cascade do |t|
     t.string "work_start_day"
     t.boolean "out_of_work"
     t.string "start_date"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "c_welfares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "c_welfares", force: :cascade do |t|
     t.string "uniform"
     t.string "shoes"
     t.string "dining_room"
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "name_kana"
     t.string "who_is_this"
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contract_employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "contract_employees", force: :cascade do |t|
     t.integer "c_main_info_id"
     t.integer "employee_info_id"
     t.integer "per_hour"
@@ -213,7 +213,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "educations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "educations", force: :cascade do |t|
     t.integer "edu_year"
     t.integer "edu_month"
     t.string "edu_day"
@@ -223,7 +223,8 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "employee_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "employee_infos", force: :cascade do |t|
+    t.text "select_title"
     t.integer "employee_id"
     t.integer "employee_last_id"
     t.string "first_name"
@@ -243,7 +244,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "employment_periods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "employment_periods", force: :cascade do |t|
     t.date "start"
     t.date "finish"
     t.integer "employee_info_id"
@@ -251,7 +252,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "families", force: :cascade do |t|
     t.integer "family_number"
     t.boolean "spouse"
     t.boolean "obligation"
@@ -260,7 +261,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "labor_management_agreements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "labor_management_agreements", force: :cascade do |t|
     t.boolean "agreement_check"
     t.date "labor_start"
     t.date "labor_fin"
@@ -269,7 +270,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "labor_standards_acts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "labor_standards_acts", force: :cascade do |t|
     t.integer "max_work_day"
     t.integer "max_work_month"
     t.integer "max_work_year"
@@ -284,7 +285,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "qualifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "qualifications", force: :cascade do |t|
     t.integer "year"
     t.integer "month"
     t.string "name"
@@ -293,7 +294,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "residence_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "residence_cards", force: :cascade do |t|
     t.boolean "copy"
     t.string "resi_id"
     t.string "citizenship"
@@ -305,7 +306,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "social_insurances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "social_insurances", force: :cascade do |t|
     t.string "employment_insurance_number"
     t.date "employment_insurance_start"
     t.date "employment_insurance_fin"
@@ -319,7 +320,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "student_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "student_cards", force: :cascade do |t|
     t.string "school_name"
     t.string "student_id"
     t.boolean "student_card_copy"
@@ -330,7 +331,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "student_checks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "student_checks", force: :cascade do |t|
     t.boolean "all"
     t.boolean "night"
     t.boolean "remote"
@@ -339,7 +340,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "work_experiences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "work_experiences", force: :cascade do |t|
     t.integer "work_year"
     t.integer "work_month"
     t.string "work_name"
@@ -348,7 +349,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_095316) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "work_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "work_infos", force: :cascade do |t|
     t.integer "work_style"
     t.integer "start_day"
     t.integer "transfer_day"

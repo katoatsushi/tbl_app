@@ -3,17 +3,20 @@
 
 <h1 style="text-align: center;">派遣社員情報入力</h1>
 <%= form_for @contract_employee, url: c_main_info_contract_employees_path(c_main_info_id: params[:c_main_info_id]) do |f| %>
-
+	<h4>●従業員コードNo</h4>
+	<%= f.collection_radio_buttons(:employee_info, EmployeeInfo.all, :id, :select_title, include_hidden: false) do |b| %>
+		<b><%= b.label { b.radio_button + b.text } %></b><br>
+	<% end %>
 		
 		# 従業員コードNo
 		t.integer :employee_info_id
-<div class="row">
-		 <div class="col-md-4">支払単価:<%= f.number_field :per_hour %></div>
-		 <div class="col-md-4">残業時給:	<%= f.number_field :out_of_hour %></div>
-		 <div class="col-md-4">深夜割増時給:	<%= f.number_field :night %></div>
-		 <div class="col-md-4">法定外休労働時給:  <%= f.number_field :off_work %></div>
-		 <div class="col-md-4">法定休日労働時給:  <%= f.number_field :on_legal_holiday %></div>
-</div>
+		<div class="row">
+			<div class="col-md-4">支払単価:<%= f.number_field :per_hour %></div>
+			<div class="col-md-4">残業時給:	<%= f.number_field :out_of_hour %></div>
+			<div class="col-md-4">深夜割増時給:	<%= f.number_field :night %></div>
+			<div class="col-md-4">法定外休労働時給:  <%= f.number_field :off_work %></div>
+			<div class="col-md-4">法定休日労働時給:  <%= f.number_field :on_legal_holiday %></div>
+		</div>
 		 <!-- 時間外割増率:  <%#= f.number_field :out_of_hour_rate%>
 		 深夜割増率:  <%#= f.number_field :night_rate %>
 		 休日割増率:  <%#= f.number_field :off_work_rate %>

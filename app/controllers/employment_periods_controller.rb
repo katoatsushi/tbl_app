@@ -20,9 +20,9 @@ class EmploymentPeriodsController < ApplicationController
     id = params[:employee_info_id]
     @employment_period.employee_info_id = id    
     if  @employment_period.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end  
   end
 

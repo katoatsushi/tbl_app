@@ -31,90 +31,90 @@
         <% if ei.bank_account.nil? %>
           <td><%= link_to "作成", new_employee_info_bank_account_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_bank_account_path(ei.id, ei.bank_account.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
        <!--  緊急連絡先 -->
         <% if ei.contact.nil? %>
           <td><%= link_to "作成", new_employee_info_contact_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_contact_path(ei.id, ei.contact.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!-- 扶養情報 -->
         <% if ei.family.nil? %>
           <td><%= link_to "作成", new_employee_info_family_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_family_path(ei.id, ei.family.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!-- 最終学歴 -->
         <% if ei.education.nil? %>
           <td><%= link_to "作成", new_employee_info_education_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_education_path(ei.id, ei.education.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!-- 最終就労先 -->
         <% if ei.work_experience.nil? %>
           <td><%= link_to "作成", new_employee_info_work_experience_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_work_experience_path(ei.id, ei.work_experience.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!-- 各種資格　取得年月 -->
-        <% if ei.qualifications.nil? %>
+        <% if ei.qualifications.length == 0 %>
           <td><%= link_to "作成", new_employee_info_qualification_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
           <td>
-            <%#= link_to "見る", employee_info_qualification_path(ei.id, ei.qualifications.first.id), class: "btn btn-outline-info btn-block" %>
+            ◯
           </td>
         <% end %>
         <!-- 学生確認 -->
         <% if ei.student_check.nil? %>
           <td><%= link_to "作成", new_employee_info_student_check_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_student_check_path(ei.id, ei.student_check.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
 
         <!--  会社記入欄 -->
         <% if ei.work_info.nil? %>
           <td><%= link_to "作成", new_employee_info_work_info_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_work_info_path(ei.id, ei.work_info.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>        
 
         <!-- 雇用契約期間（西暦） -->
         <% if ei.employment_period.nil? %>
           <td><%= link_to "作成", new_employee_info_employment_period_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_employment_period_path(ei.id, ei.employment_period.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!--   在留カード情報 -->
         <% if ei.residence_card.nil? %>
           <td><%= link_to "作成", new_employee_info_residence_card_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_residence_card_path(ei.id, ei.employment_period.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!-- 学生証情報 -->
         <% if ei.student_card.nil? %>
           <td><%= link_to "作成", new_employee_info_student_card_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_student_card_path(ei.id, ei.student_card.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!-- 労使協定 -->
         <% if ei.labor_management_agreement.nil? %>
           <td><%= link_to "作成", new_employee_info_labor_management_agreement_path(ei.id), class: "btn btn-outline-secondary btn-block" %>
           </td>
         <% else %>
-          <td><%= link_to "見る", employee_info_labor_management_agreement_path(ei.id, ei.labor_management_agreement.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!--  36協定 -->
         <% if ei.labor_standards_act.nil? %>
           <td><%= link_to "作成", new_employee_info_labor_standards_act_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_labor_standards_act_path(ei.id, ei.labor_standards_act.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>
         <!-- 社会保険 -->
         <% if ei.social_insurance.nil? %>
           <td><%= link_to "作成", new_employee_info_social_insurance_path(ei.id), class: "btn btn-outline-secondary btn-block" %></td>
         <% else %>
-          <td><%= link_to "見る", employee_info_social_insurance_path(ei.id, ei.social_insurance.id), class: "btn btn-outline-info btn-block" %></td>
+          <td>◯</td>
         <% end %>    
       </tr>
 

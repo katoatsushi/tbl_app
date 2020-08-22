@@ -28,9 +28,9 @@ class FamilysController < ApplicationController
     id = params[:employee_info_id]
     @family.employee_info_id = id    
     if  @family.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end     
   end
 

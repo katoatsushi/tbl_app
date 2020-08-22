@@ -28,9 +28,9 @@ class CLimitsController < ApplicationController
     id = params[:c_main_info_id]
     @c_limit.c_main_info_id = id
     if @c_limit.save
-      redirect_to root_path
+      redirect_to c_main_infos_path
     else
-      redirect_to root_path
+      redirect_to c_main_infos_path
     end
   end
 

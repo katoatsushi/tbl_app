@@ -28,9 +28,9 @@ class ResidenceCardsController < ApplicationController
     id = params[:employee_info_id]
     @residence_card.employee_info_id = id    
     if  @residence_card.save
-      redirect_to root_path
+      redirect_to employee_infos_path
     else
-      redirect_to root_path
+      redirect_to employee_infos_path
     end 
   end
 
